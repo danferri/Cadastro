@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Inicializar as views
         etNomeCompleto = findViewById(R.id.etNomeCompleto)
         etTelefone = findViewById(R.id.etTelefone)
         etEmail = findViewById(R.id.etEmail)
@@ -40,12 +39,10 @@ class MainActivity : AppCompatActivity() {
         btnLimpar = findViewById(R.id.btnLimpar)
         btnSalvar = findViewById(R.id.btnSalvar)
 
-        // Configurar o Spinner de UF
         val ufs = resources.getStringArray(R.array.ufs)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ufs)
         spUf.adapter = adapter
 
-        // Lógica do botão Salvar
         btnSalvar.setOnClickListener {
             val nomeCompleto = etNomeCompleto.text.toString()
             val telefone = etTelefone.text.toString()
@@ -63,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, formulario.toString(), Toast.LENGTH_LONG).show()
         }
 
-        // Lógica do botão Limpar
+
         btnLimpar.setOnClickListener {
             etNomeCompleto.text.clear()
             etTelefone.text.clear()

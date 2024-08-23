@@ -26,20 +26,20 @@ class MainActivity : AppCompatActivity() {
 
         val ufs = resources.getStringArray(R.array.ufs)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ufs)
-        amb.spUf.adapter = adapter
+        amb.ufSp.adapter = adapter
 
-        amb.btnSalvar.setOnClickListener {
-            val nomeCompleto = amb.etNomeCompleto.text.toString()
-            val telefone = amb.etTelefone.text.toString()
-            val email = amb.etEmail.text.toString()
-            val ingressarListaEmail = amb.cbEmailList.isChecked
-            val sexo = when (amb.rgSexo.checkedRadioButtonId) {
-                amb.rbMasculino.id -> "Masculino"
-                amb.rbFeminino.id -> "Feminino"
+        amb.saveBt.setOnClickListener {
+            val nomeCompleto = amb.nameEt.text.toString()
+            val telefone = amb.phoneEt.text.toString()
+            val email = amb.emailEt.text.toString()
+            val ingressarListaEmail = amb.emaillistCb.isChecked
+            val sexo = when (amb.genderRg.checkedRadioButtonId) {
+                amb.maleRb.id -> "Masculino"
+                amb.femaleRb.id -> "Feminino"
                 else -> "Não especificado"
             }
-            val cidade = amb.etCidade.text.toString()
-            val uf = amb.spUf.selectedItem.toString()
+            val cidade = amb.cityEt.text.toString()
+            val uf = amb.ufSp.selectedItem.toString()
 
             val formulario = Formulario(
                 nomeCompleto = nomeCompleto,
@@ -53,14 +53,14 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, formulario.toString(), Toast.LENGTH_LONG).show()
         }
 
-        amb.btnLimpar.setOnClickListener {
-            amb.etNomeCompleto.text.clear()
-            amb.etTelefone.text.clear()
-            amb.etEmail.text.clear()
-            amb.cbEmailList.isChecked = false
-            amb.rgSexo.clearCheck()
-            amb.etCidade.text.clear()
-            amb.spUf.setSelection(0)
+        amb.limparBt.setOnClickListener {
+            amb.nameEt.text.clear()
+            amb.phoneEt.text.clear()
+            amb.emailEt.text.clear()
+            amb.emaillistCb.isChecked = false
+            amb.genderRg.clearCheck()
+            amb.cityEt.text.clear()
+            amb.ufSpdan .setSelection(0)
         }
     }
 }

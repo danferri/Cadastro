@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             amb.emaillistCb.isChecked = false
             amb.genderRg.clearCheck()
             amb.cityEt.text.clear()
-            amb.ufSpdan .setSelection(0)
+            amb.ufSp.setSelection(0)
         }
     }
 }
